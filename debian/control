@@ -1,0 +1,50 @@
+Source: libperl-prereqscanner-notquitelite-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Peter Pentchev <roam@debian.org>,
+           gregor herrmann <gregoa@debian.org>
+Section: perl
+Testsuite: autopkgtest-pkg-perl
+Priority: optional
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Indep: libcpan-meta-requirements-perl <!nocheck>,
+                     libdata-dump-perl <!nocheck>,
+                     libextutils-makemaker-cpanfile-perl,
+                     libmodule-corelist-perl <!nocheck>,
+                     libmodule-cpanfile-perl <!nocheck>,
+                     libmodule-find-perl <!nocheck>,
+                     libregexp-trie-perl <!nocheck>,
+                     libtest-failwarnings-perl <!nocheck>,
+                     libtest-simple-perl <!nocheck>,
+                     libtest-useallmodules-perl <!nocheck>,
+                     liburi-cpan-perl <!nocheck>,
+                     perl
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libperl-prereqscanner-notquitelite-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libperl-prereqscanner-notquitelite-perl.git
+Homepage: https://metacpan.org/release/Perl-PrereqScanner-NotQuiteLite
+Rules-Requires-Root: no
+
+Package: libperl-prereqscanner-notquitelite-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         libcpan-meta-requirements-perl,
+         libdata-dump-perl,
+         libmodule-corelist-perl,
+         libmodule-cpanfile-perl,
+         libmodule-find-perl,
+         libregexp-trie-perl,
+         liburi-cpan-perl
+Description: Perl module for scanning Perl code for prerequisites
+ Perl::PrereqScanner::NotQuiteLite is yet another prerequisites scanner. It
+ passes almost all the scanning tests for Perl::PrereqScanner and
+ Module::ExtractUse (ie. except for a few dubious ones), and runs slightly
+ faster than PPI-based Perl::PrereqScanner. However, it doesn't run as fast as
+ Perl::PrereqScanner::Lite (which uses an XS lexer).
+ .
+ Perl::PrereqScanner::NotQuiteLite also recognizes eval. Prerequisites in eval
+ are not considered as requirements, but they may be collected as suggestions.
+ .
+ Conditional requirements or requirements loaded in a block are treated as
+ recommends. Noed modules are stored separately (since 0.94). You may or may
+ not need to merge them into requires.
